@@ -19,3 +19,9 @@ Thumbs.db
 
 # Local Claude Code settings
 .claude/
+
+# Python (ai-testing-assistant)
+__pycache__/
+*.pyc
+.venv/
+venv/
