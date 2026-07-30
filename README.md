@@ -8,6 +8,12 @@ This is the Phase 4 (Framework Development) deliverable from the AI-Powered
 Test Automation Assistant capstone brief: a BDD/POM automation framework with
 Excel-driven test data and HTML reporting.
 
+The Phase 7 deliverable (AI Testing Assistant chatbot) lives separately in
+[`ai-testing-assistant/`](ai-testing-assistant/README.md) — a Python CLI
+chatbot, unrelated in tech stack to the JS framework below, that reads
+`docs/AI Usecase.docx` and this repo's feature file to answer requirement/
+test-case questions and generate Selenium code via a local Ollama model.
+
 ## Tech stack
 
 | Concern            | Choice                                   |
