@@ -16,3 +16,6 @@ Thumbs.db
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# Local Claude Code settings
+.claude/
