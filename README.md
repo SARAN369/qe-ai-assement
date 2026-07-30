@@ -4,15 +4,25 @@ Playwright (JavaScript) + Cucumber BDD + Page Object Model test automation
 framework built for the capstone use case **"Multi-City Flight Booking with
 Ancillary Services"** on [MakeMyTrip](https://www.makemytrip.com).
 
-This is the Phase 4 (Framework Development) deliverable from the AI-Powered
-Test Automation Assistant capstone brief: a BDD/POM automation framework with
-Excel-driven test data and HTML reporting.
+## STLC Phases
 
-The Phase 7 deliverable (AI Testing Assistant chatbot) lives separately in
-[`ai-testing-assistant/`](ai-testing-assistant/README.md) — a Python CLI
-chatbot, unrelated in tech stack to the JS framework below, that reads
-`docs/AI Usecase.docx` and this repo's feature file to answer requirement/
-test-case questions and generate Selenium code via a local Ollama model.
+All seven STLC phases from the capstone brief are implemented. Each
+AI-powered phase uses a local Ollama LLM (llama3.2:3b) with the same
+design principle: deterministic code for numbers/logic/validation,
+LLM only for prose and proposals.
+
+| Phase | Directory | What it does |
+|-------|-----------|-------------|
+| 1 — Requirement Analysis | [`phase1-requirement-analysis/`](phase1-requirement-analysis/) | Extracts functional + non-functional requirements from the docx, builds an RTM (Excel), checks scenario coverage |
+| 2 — Test Planning | [`phase2-test-planning/`](phase2-test-planning/) | Generates effort estimation (code-computed, LLM-narrated) and a Test Plan document (docx) |
+| 3 — Test Design | [`phase3-test-design/`](phase3-test-design/) | Manual test cases (Excel), manual-to-automated traceability, boundary/negative suggestions, AI-assisted test data generation |
+| 4 — Framework Development | Root project (`src/`, `features/`, `step-definitions/`) | Playwright + Cucumber BDD + POM framework (this README's main content below) |
+| 5 — Test Execution & Reporting | [`phase5-test-execution-reporting/`](phase5-test-execution-reporting/) | Analyzes real cucumber-js JSON output: pass/fail trends, failure clustering, AI narrative summary, defect risk heuristic |
+| 6 — Agentic AI Automation | [`phase6-agentic-automation/`](phase6-agentic-automation/) | browser-use agentic bot (natural-language → browser actions), self-healing locator module (LLM-powered selector repair) |
+| 7 — AI Testing Assistant | [`ai-testing-assistant/`](ai-testing-assistant/) | CLI chatbot that answers requirement/test-case questions from the docx and feature file via local Ollama |
+
+**Shared library:** [`common/`](common/) — Ollama client, docx reader,
+feature file parser, keyword matcher — used across phases 1, 3, 5, 7.
 
 ## Tech stack
 

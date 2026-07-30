@@ -47,9 +47,12 @@ def load_docx_chunks(path: Path) -> list[Chunk]:
         line = para.text.strip()
         if not line:
             continue
-        is_heading = bool(_HEADING_PATTERN.match(line)) or (
-            len(line) < 60 and not line.endswith((".", ":", ",")) and line[0:1].isupper()
-        )
+        # Only the explicit pattern counts as a heading — a "short capitalized
+        # line" fallback also matched plain body bullets like "Flight type",
+        # fragmenting sections like "c) Apply filters: ..." and truncating
+        # their real content (found while building phase1's RTM, which
+        # reuses this same heuristic in common/docx_reader.py).
+        is_heading = bool(_HEADING_PATTERN.match(line))
         if is_heading and current_lines:
             flush()
             current_lines = []
